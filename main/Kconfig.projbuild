@@ -1,0 +1,15 @@
+menu "WiFi Configuration"
+
+    config MY_WIFI_SSID
+        string "WiFi SSID"
+        default "Ten_WiFi_Mac_Dinh"
+        help
+            Nhap ten WiFi cua ban vao day.
+
+    config MY_WIFI_PASS
+        string "WiFi Password"
+        default "Mat_Khau_Mac_Dinh"
+        help
+            Nhap mat khau WiFi cua ban vao day.
+
+endmenu

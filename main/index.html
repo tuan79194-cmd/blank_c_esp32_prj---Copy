@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP32-CAM Live Stream</title>
+  <style>
+    body { font-family: Arial; text-align: center; background-color: #222; color: white; margin-top: 20px;}
+    img { width: 100%; max-width: 600px; border: 3px solid #4CAF50; border-radius: 8px; margin-bottom: 20px; }
+    .btn { padding: 15px 30px; font-size: 20px; cursor: pointer; border-radius: 8px; border: none; font-weight: bold; margin: 10px; }
+    .btn-flash { background-color: #f44336; color: white; transition: 0.3s; }
+  </style>
+</head>
+<body>
+  <h1>Camera Giám Sát (Live)</h1>
+  
+  <div><img id="cam-stream" src="/stream" alt="Đang kết nối luồng Video..."></div>
+  
+  <button id="flashBtn" class="btn btn-flash" onclick="toggleFlash()">💡 BẬT FLASH</button>
+  
+  <button id="captureBtn" class="btn btn-capture" onclick="captureAndPreview()">📸 CHỤP & XEM ẢNH</button>
+
+  <canvas id="hidden-canvas" style="display: none;"></canvas>
+
+  <script>
+    // Tự động lấy IP của mạch và trỏ luồng video sang Cổng 81
+    window.onload = function() {
+      let camImg = document.getElementById('cam-stream');
+      camImg.crossOrigin = "anonymous"; // <--- THÊM DÒNG NÀY ĐỂ XIN PHÉP
+      camImg.src = window.location.protocol + "//" + window.location.hostname + ":81/stream";
+    };
+    let flashOn = false;
+    function toggleFlash() {
+      flashOn = !flashOn;
+      fetch('/led?state=' + (flashOn ? '1' : '0')).then(r => {
+        let btn = document.getElementById('flashBtn');
+        if(flashOn) { btn.style.backgroundColor = '#4CAF50'; btn.innerText = '💡 TẮT FLASH'; }
+        else { btn.style.backgroundColor = '#f44336'; btn.innerText = '💡 BẬT FLASH'; }
+      });
+    }
+
+function captureAndPreview() {
+    const video = document.getElementById('cam-stream'); // Thẻ ảnh đang stream video
+    const canvas = document.getElementById('hidden-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // 1. Kiểm tra xem luồng video đã sẵn sàng chưa
+    if (!video.complete || video.naturalWidth === 0) {
+        alert("Camera chưa sẵn sàng hoặc chưa có luồng video!");
+        return;
+    }
+
+    // 2. Thiết lập kích thước Canvas y hệt kích thước GỐC của ảnh video
+    // (Giúp ảnh chụp có độ phân giải cao nhất, không bị vỡ)
+    canvas.width = video.naturalWidth;
+    canvas.height = video.naturalHeight;
+
+    // 3. VẼ!!! Copy bức ảnh hiện tại từ luồng video dán vào Canvas
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // 4. CHUYỂN ĐỔI: Biến nội dung canvas thành một chuỗi dữ liệu ảnh JPEG
+    // (Dạng Base64, trông rất loằng ngoằng nhưng trình duyệt hiểu được)
+    const dataUrl = canvas.toDataURL("image/jpeg");
+
+    // 5. MỞ TAB MỚI VÀ HIỂN THỊ ẢNH
+    // Mở một tab trống
+    const newTab = window.open('about:blank', '_blank');
+    
+    // Nếu bị trình duyệt chặn Pop-up thì báo lỗi
+    if(!newTab){
+        alert("Vui lòng cho phép Pop-up để xem ảnh chụp!");
+        return;
+    }
+
+    // Viết nội dung HTML vào Tab mới đó để hiển thị bức ảnh
+    newTab.document.write(`
+        <html>
+            <head>
+                <title>Ảnh chụp từ ESP32-CAM</title>
+                <style>
+                    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #333; color: white; font-family: sans-serif;}
+                    img { max-width: 100%; max-height: 90vh; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 2px solid white; }
+                    .container { text-align: center; }
+                    .btn-close { margin-top: 20px; padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+                    p { color: #aaa; margin-top: 5px;}
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h2>Xem trước ảnh chụp</h2>
+                    <img src="${dataUrl}" alt="Captured Frame">
+                    <p>Độ phân giải: ${canvas.width} x ${canvas.height}</p>
+                    <p>(Chuột phải vào ảnh và chọn "Lưu hình ảnh thành..." để lưu về máy)</p>
+                    <button class="btn-close" onclick="window.close()">Đóng Tab</button>
+                </div>
+            </body>
+        </html>
+    `);
+    newTab.document.close(); // Quan trọng: Báo cho tab mới biết đã viết xong
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\ADMIN\Desktop\blank_c_esp32_prj - Copy\build\run-camera.elf C:\Users\ADMIN\Desktop\blank_c_esp32_prj - Copy\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py'
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM7 instead...[0m
+[0;33m--- esp-idf-monitor 1.9.0 on \\.\COM7 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2235[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x400dc7a7: [0;33mstream_handler[0m[0m at [0;32mC:/Users/ADMIN/Desktop/blank_c_esp32_prj - Copy/main/run-camera.c[0m[0m:[1;31m143[0m
+[0m--- 0x400029ac: [0;33m__divdf3[0m[0m in [0;32mROM[0m
+[0m--- 0x400029cb: [0;33m__divdf3[0m[0m in [0;32mROM[0m
+[0m--- 0x400dc7a4: [0;33mstream_handler[0m[0m at [0;32mC:/Users/ADMIN/Desktop/blank_c_esp32_prj - Copy/main/run-camera.c[0m[0m:[1;31m143[0m
+[0m--- 0x400f5899: [0;33mhttpd_uri[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_uri.c[0m[0m:[1;31m347[0m
+[0m--- 0x400f4805: [0;33mhttpd_parse_req[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_parse.c[0m[0m:[1;31m685[0m
+[0m--- 0x400f48c0: [0;33mhttpd_req_new[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_parse.c[0m[0m:[1;31m821[0m
+[0m--- 0x400f4e00: [0;33mhttpd_sess_process[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_sess.c[0m[0m:[1;31m428[0m
+[0m--- 0x400f3782: [0;33mhttpd_process_session[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_main.c[0m[0m:[1;31m263[0m
+[0m--- 0x40166f0b: [0;33mhttpd_sess_enum[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_sess.c[0m[0m:[1;31m50[0m
+[0m--- 0x400f3e92: [0;33mhttpd_server[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_main.c[0m[0m:[1;31m313[0m
+[0m--- 0x400f3efe: [0;33mhttpd_thread[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_main.c[0m[0m:[1;31m335[0m
+[0m--- 0x4008dc59: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2235[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x400dc7a7: [0;33mstream_handler[0m[0m at [0;32mC:/Users/ADMIN/Desktop/blank_c_esp32_prj - Copy/main/run-camera.c[0m[0m:[1;31m143[0m
+[0m--- 0x400029ac: [0;33m__divdf3[0m[0m in [0;32mROM[0m
+[0m--- 0x400029cb: [0;33m__divdf3[0m[0m in [0;32mROM[0m
+[0m--- 0x400dc7a4: [0;33mstream_handler[0m[0m at [0;32mC:/Users/ADMIN/Desktop/blank_c_esp32_prj - Copy/main/run-camera.c[0m[0m:[1;31m143[0m
+[0m--- 0x400f5899: [0;33mhttpd_uri[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_uri.c[0m[0m:[1;31m347[0m
+[0m--- 0x400f4805: [0;33mhttpd_parse_req[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_parse.c[0m[0m:[1;31m685[0m
+[0m--- 0x400f48c0: [0;33mhttpd_req_new[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_parse.c[0m[0m:[1;31m821[0m
+[0m--- 0x400f4e00: [0;33mhttpd_sess_process[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_sess.c[0m[0m:[1;31m428[0m
+[0m--- 0x400f3782: [0;33mhttpd_process_session[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_main.c[0m[0m:[1;31m263[0m
+[0m--- 0x40166f0b: [0;33mhttpd_sess_enum[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_sess.c[0m[0m:[1;31m50[0m
+[0m--- 0x400f3e92: [0;33mhttpd_server[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_main.c[0m[0m:[1;31m313[0m
+[0m--- 0x400f3efe: [0;33mhttpd_thread[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/esp_http_server/src/httpd_main.c[0m[0m:[1;31m335[0m
+[0m--- 0x4008dc59: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2235[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.3/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m

@@ -1,0 +1,143 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\ADMIN\Desktop\blank_c_esp32_prj - Copy\build\run-camera.elf C:\Users\ADMIN\Desktop\blank_c_esp32_prj - Copy\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 26 2026 12:16:30[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (36) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=24c00h (150528) map[0m
+[0;32mI (138) esp_image: segment 1: paddr=00034c28 vaddr=3ffb0000 size=06bb0h ( 27568) load[0m
+[0;32mI (149) esp_image: segment 2: paddr=0003b7e0 vaddr=40080000 size=04838h ( 18488) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=a27a8h (665512) map[0m
+[0;32mI (384) esp_image: segment 4: paddr=000e27d0 vaddr=40084838 size=182fch ( 99068) load[0m
+[0;32mI (422) esp_image: segment 5: paddr=000faad4 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (437) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (437) boot: Disabling RNG early entropy source...[0m
+[0;32mI (448) quad_psram: This chip is ESP32-D0WD[0m
+[0;32mI (449) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (449) esp_psram: Speed: 40MHz[0m
+[0;32mI (449) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
+[0;33mW (455) esp_psram: Virtual address not enough for PSRAM, map as much as we can. 4MB is mapped[0m
+[0;32mI (463) cpu_start: Multicore app[0m
+[0;32mI (1371) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1379) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (1380) cpu_start: Pro cpu start user code[0m
+[0;32mI (1380) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1382) app_init: Application information:[0m
+[0;32mI (1386) app_init: Project name:     run-camera[0m
+[0;32mI (1390) app_init: App version:      1[0m
+[0;32mI (1393) app_init: Compile time:     Mar 26 2026 12:15:06[0m
+[0;32mI (1399) app_init: ELF file SHA256:  08a1ce8ba...[0m
+[0;32mI (1403) app_init: ESP-IDF:          v5.5.3-dirty[0m
+[0;32mI (1407) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1411) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (1415) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (1420) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1426) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (1431) heap_init: At 3FFBB830 len 000247D0 (145 KiB): DRAM[0m
+[0;32mI (1436) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (1442) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (1447) heap_init: At 4009CB34 len 000034CC (13 KiB): IRAM[0m
+[0;32mI (1453) esp_psram: Adding pool of 4096K of PSRAM memory to heap allocator[0m
+[0;33mW (1460) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (1472) spi_flash: detected chip: generic[0m
+[0;32mI (1476) spi_flash: flash io: dio[0m
+[0;32mI (1480) main_task: Started on CPU0[0m
+[0;32mI (1490) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1490) main_task: Calling app_main()[0m
+[0;32mI (1550) cam_hal: cam init ok[0m
+[0;32mI (1550) sccb-ng: pin_sda 26 pin_scl 27[0m
+[0;32mI (1550) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (1580) camera: Camera PID=0x26 VER=0x42 MIDL=0x7f MIDH=0xa2[0m
+[0;32mI (1580) camera: Detected OV2640 camera[0m
+[0;32mI (1580) camera: Detected camera at address=0x30[0m
+[0;32mI (1650) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (1660) cam_hal: buffer_size: 32768, half_buffer_size: 4096, node_buffer_size: 2048, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (1660) cam_hal: Allocating 61440 Byte frame buffer in PSRAM[0m
+[0;32mI (1660) cam_hal: cam config ok[0m
+[0;32mI (1670) ov2640: Set PLL: clk_2x: 0, clk_div: 0, pclk_auto: 0, pclk_div: 8[0m
+[0;32mI (1740) ESP32-CAM: Khoi tao Camera THANH CONG![0m
+[0;32mI (1750) wifi:wifi driver task: 3ffc4de4, prio:23, stack:6656, core=0[0m
+[0;32mI (1770) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (1770) wifi:wifi certification version: v7.0[0m
+[0;32mI (1770) wifi:config NVS flash: enabled[0m
+[0;32mI (1770) wifi:config nano formatting: disabled[0m
+[0;32mI (1770) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1780) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1780) wifi:Init management short buffer num: 32[0m
+[0;32mI (1790) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1790) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1790) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1800) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1800) wifi_init: rx ba win: 6[0m
+[0;32mI (1810) wifi_init: accept mbox: 6[0m
+[0;32mI (1810) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1810) wifi_init: udp mbox: 6[0m
+[0;32mI (1810) wifi_init: tcp mbox: 6[0m
+[0;32mI (1820) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1820) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1820) wifi_init: tcp mss: 1440[0m
+[0;32mI (1830) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1830) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (1840) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (1840) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1920) wifi:mode : sta (ec:e3:34:c1:6a:d8)[0m
+[0;32mI (1920) wifi:enable tsf[0m
+[0;32mI (1930) main_task: Returned from app_main()[0m
+[0;32mI (1940) wifi:new:<4,0>, old:<1,0>, ap:<255,255>, sta:<4,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1940) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2060) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2130) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (2190) wifi:connected with TrinityX Phong Khach, aid = 17, channel 4, BW20, bssid = 0c:f0:7b:31:c8:74[0m
+[0;32mI (2190) wifi:security: WPA2-PSK, phy: bgn, rssi: -57[0m
+[0;32mI (2190) wifi:pm start, type: 1[0m
+
+[0;32mI (2190) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2230) wifi:<ba-add>idx:0 (ifx:0, 0c:f0:7b:31:c8:74), tid:6, ssn:2, winSize:64[0m
+[0;32mI (2230) wifi:<ba-add>idx:1 (ifx:0, 0c:f0:7b:31:c8:74), tid:0, ssn:2, winSize:64[0m
+[0;32mI (2280) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (3220) esp_netif_handlers: sta ip: 192.168.1.200, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (3220) ESP32-CAM: ===============================================[0m
+[0;32mI (3220) ESP32-CAM: KET NOI THANH CONG! IP CUA CAMERA LA: 192.168.1.200[0m
+[0;32mI (3230) ESP32-CAM: ===============================================[0m
+[0;33mW (518540) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (518540) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (518640) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (518640) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (518700) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (518700) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (518700) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (518710) ESP32-CAM: Da BAT den Flash[0m
+[0;33mW (518720) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (518720) ESP32-CAM: Da TAT den Flash[0m
+[0;32mI (518730) ESP32-CAM: Da BAT den Flash[0m
+[0;32mI (518740) ESP32-CAM: Da TAT den Flash[0m
+[0;33mW (549470) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (549470) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (549470) ESP32-CAM: Da BAT den Flash[0m
+[0;32mI (549480) ESP32-CAM: Da TAT den Flash[0m
+[0;33mW (549490) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;33mW (1246330) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (1246330) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (1246340) ESP32-CAM: Da TAT den Flash[0m
+[0;32mI (1246340) ESP32-CAM: Da BAT den Flash[0m
+[0;33mW (1246350) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;33mW (1246350) httpd_txrx: httpd_sock_err: error in recv : 104[0m
